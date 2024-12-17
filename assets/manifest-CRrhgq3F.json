@@ -1,0 +1,7 @@
+{
+    "short_name": "WeatherApp",
+    "name": "Weather App",
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
