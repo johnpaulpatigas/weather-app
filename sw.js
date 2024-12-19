@@ -1,13 +1,6 @@
-self.addEventListener("install", (event) => {
-    console.log("Service Worker: Installed");
-    event.waitUntil(
-        caches
-            .open("static-cache")
-            .then((cache) => {
-                return cache.addAll(["./", "./index.html", "./assets/"]);
-            })
-            .catch((error) => {
-                console.error("Caching failed:", error);
-            })
-    );
-});
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js");
+
+workbox.routing.registerRoute(
+    ({ request }) => request.destination === "image",
+    new workbox.strategies.NetworkFirst()
+);
